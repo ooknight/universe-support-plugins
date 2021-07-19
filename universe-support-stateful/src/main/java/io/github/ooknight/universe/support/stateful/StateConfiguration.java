@@ -194,6 +194,7 @@ public class StateConfiguration<S, T, C> {
      *
      * @param trigger The accepted trigger
      * @param guard   Function that must return true in order for the trigger to be accepted
+     * @param action  The action to be performed "during" transition
      * @return The receiver
      */
     public StateConfiguration<S, T, C> reentry(T trigger, Predicate<C> guard, Action<S, T, C> action) {

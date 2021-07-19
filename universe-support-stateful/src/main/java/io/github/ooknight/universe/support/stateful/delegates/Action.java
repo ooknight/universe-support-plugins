@@ -10,6 +10,9 @@ public interface Action<S, T, C> {
 
     /**
      * Performs this operation
+     *
+     * @param transition Transition
+     * @param context    Context
      */
     void execute(Transition<S, T> transition, C context);
 }

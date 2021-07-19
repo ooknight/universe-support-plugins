@@ -33,6 +33,7 @@ public class StateMachine<S, T, C> {
      * Construct a state machine
      *
      * @param initialState The initial state
+     * @param context      Execution context
      * @param config       State machine configuration
      */
     StateMachine(S initialState, C context, StateMachineConfig<S, T, C> config) {
@@ -57,6 +58,7 @@ public class StateMachine<S, T, C> {
     /**
      * The currently-permissible trigger values
      *
+     * @param context Execution context
      * @return The currently-permissible trigger values
      */
     public List<T> getPermittedTriggers(C context) {
