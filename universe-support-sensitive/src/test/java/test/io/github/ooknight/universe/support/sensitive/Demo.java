@@ -2,12 +2,11 @@ package test.io.github.ooknight.universe.support.sensitive;
 
 import io.github.ooknight.universe.support.sensitive.annotation.Sensitive;
 import io.github.ooknight.universe.support.sensitive.annotation.SensitiveType;
+import static io.github.ooknight.universe.support.utils.COMBINE.x;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
-
-import static oo.UTILS.x;
 
 public class Demo {
 

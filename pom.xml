@@ -5,32 +5,46 @@
     <parent>
         <groupId>io.github.ooknight</groupId>
         <artifactId>universe-parent</artifactId>
-        <version>1.0.2</version>
-        <relativePath/>
+        <version>1.1.0</version>
+        <relativePath>../universe-bom/universe-parent/pom.xml</relativePath>
     </parent>
 
     <!--<groupId>io.github.ooknight</groupId>-->
     <artifactId>universe-support-plugins</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
 
+    <name>universe-support-plugins</name>
+    <description>univers support plugins</description>
+    <url>https://github.com/ooknight/universe-support-plugins</url>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License (GPL) version 3.0</name>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>ooknight</name>
+            <email>ooknight@163.com</email>
+            <url>https://github.com/ooknight</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:ooknight/universe-support-plugins.git</connection>
+        <url>https://github.com/ooknight/universe-support-plugins</url>
+    </scm>
+
     <modules>
+        <module>universe-prime</module>
         <module>universe-support-ebean</module>
         <module>universe-support-ignite</module>
         <module>universe-support-sensitive</module>
         <module>universe-support-stateful</module>
         <module>universe-support-utils</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.github.ooknight</groupId>
-                <artifactId>universe-support-utils</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>
