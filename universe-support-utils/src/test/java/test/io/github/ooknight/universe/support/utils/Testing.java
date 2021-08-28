@@ -27,6 +27,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class Testing {
 
     @Test
+    void console() {
+        x.console.echo(new Point());
+        x.console.echo("test");
+        x.console.echo(Lists.newArrayList(new Point(), new Point()));
+        x.console.echo(Lists.newArrayList("test1", "test2"));
+    }
+
+    @Test
     void rsa1() {
         CryptoUtils.RSA rsa = x.crypto.rsa();
         //

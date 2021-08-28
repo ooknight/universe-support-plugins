@@ -1,13 +1,17 @@
 package test.io.github.ooknight.universe.support.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import io.github.ooknight.universe.support.utils.Bean;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Line {
+public class Line implements Bean {
 
     private Point start;
     private Point end;

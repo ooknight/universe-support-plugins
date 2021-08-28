@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 
-public class Demo {
+public class Testing {
 
     @Test
     void test() throws Exception {
@@ -16,7 +16,7 @@ public class Demo {
         entity.setId(1L);
         entity.setName("测试一下");
         entity.setMobile("12345678901");
-        entity.setAddress("北京市朝阳区朝外大街赚赚科技");
+        entity.setAddress("北京市宣武区北纬路甲1号");
         entity.setIdcard("123456123456781234");
         entity.setBankcard("1234567890123456");
         entity.setMail("test@test.com");
