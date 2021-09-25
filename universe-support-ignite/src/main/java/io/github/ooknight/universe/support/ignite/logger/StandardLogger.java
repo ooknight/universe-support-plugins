@@ -27,25 +27,16 @@ public class StandardLogger implements IgniteLogger {
 
     @Override
     public void trace(String msg) {
-        if (msg == null || msg.trim().length() == 0) {
-            return;
-        }
         log.trace(msg);
     }
 
     @Override
     public void debug(String msg) {
-        if (msg == null || msg.trim().length() == 0) {
-            return;
-        }
         log.debug(msg);
     }
 
     @Override
     public void info(String msg) {
-        if (msg == null || msg.trim().length() == 0) {
-            return;
-        }
         log.info(msg);
     }
 

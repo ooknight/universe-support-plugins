@@ -1,8 +1,6 @@
 package io.github.ooknight.universe.support.utils.component;
 
 import cn.hutool.json.JSONUtil;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import java.util.Map;
 import java.util.Optional;
@@ -10,23 +8,23 @@ import java.util.Optional;
 public interface JsonUtils {
 
     default String string(Object o) {
-        return string(o, false);
+        return JSONUtil.toJsonStr(o);
     }
 
     default String string(Object o, boolean pretty) {
         if (pretty) {
-            return JSON.toJSONString(o, SerializerFeature.WriteMapNullValue, SerializerFeature.PrettyFormat);
+            return JSONUtil.toJsonPrettyStr(o);
         } else {
-            return JSON.toJSONString(o, SerializerFeature.WriteMapNullValue);
+            return JSONUtil.toJsonStr(o);
         }
     }
 
     default <T> T parse(String str, Class<T> cls) {
-        return JSON.parseObject(str, cls);
+        return JSONUtil.toBean(str, cls);
     }
 
     default String read(String key, String content) {
-        return Optional.ofNullable(JSONUtil.getByPath(JSONUtil.parse(content), key)).orElse(null).toString();
+        return Optional.ofNullable(JSONUtil.getByPath(JSONUtil.parse(content), key).toString()).orElse(null);
     }
 
     Map<String, String> map(String content);

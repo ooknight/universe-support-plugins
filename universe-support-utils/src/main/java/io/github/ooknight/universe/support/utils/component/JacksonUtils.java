@@ -1,7 +1,6 @@
 package io.github.ooknight.universe.support.utils.component;
 
-import static io.github.ooknight.universe.support.utils.COMBINE.x;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -26,32 +25,39 @@ public final class JacksonUtils implements JsonUtils {
 
     @Override
     public String string(Object o) {
-        return x.throwable.propagate(() -> mapper.writeValueAsString(o));
-    }
-
-    @Override
-    public String string(Object o, boolean pretty) {
-        if (pretty) {
-            return x.throwable.propagate(() -> mapper.writerWithDefaultPrettyPrinter().writeValueAsString(o));
-        } else {
-            return x.throwable.propagate(() -> mapper.writeValueAsString(o));
+        try {
+            return mapper.writeValueAsString(o);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Override
     public <T> T parse(String content, Class<T> cls) {
-        return x.throwable.propagate(() -> mapper.readValue(content, cls));
+        try {
+            return mapper.readValue(content, cls);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public String read(String key, String content) {
-        return x.throwable.propagate(() -> mapper.readTree(content).get(key).asText());
+        try {
+            return mapper.readTree(content).get(key).asText();
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public Map<String, String> map(String content) {
-        MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, String.class);
-        return x.throwable.propagate(() -> mapper.readValue(content, type));
+        try {
+            MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, String.class);
+            return mapper.readValue(content, type);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
